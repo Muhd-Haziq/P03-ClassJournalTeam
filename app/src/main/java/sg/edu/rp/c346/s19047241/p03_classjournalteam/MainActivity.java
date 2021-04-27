@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     // Views
     ListView moduleLV;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +34,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         initViews();
 
         // Add Modules
-        Module webServicesModule = new Module("C302", "Web Services");
-        Module androidModule = new Module("C347", "Android Programming ll");
+        Module webServicesModule = new Module("C302", "Web Services", "jason_lim@rp.edu.sg");
+        Module androidModule = new Module("C347", "Android Programming ll", "andy_tao@rp.edu.sg");
         moduleArrayList.add(webServicesModule);
         moduleArrayList.add(androidModule);
 
@@ -45,9 +47,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         dailyCAS_C302.add(new DailyCA("A", webServicesModule.getModuleName(),3));
         webServicesModule.setAlDailyCA(dailyCAS_C302);
 
+
         // -> Android Programming 2
         ArrayList<DailyCA> dailyCAS_C347 = new ArrayList<>();
-        dailyCAS_C347.add(new DailyCA("B", androidModule.getModuleName(),1));
+        dailyCAS_C347.add(new DailyCA("C", androidModule.getModuleName(),1));
         dailyCAS_C347.add(new DailyCA("C", androidModule.getModuleName(),2));
         dailyCAS_C347.add(new DailyCA("A", androidModule.getModuleName(),3));
         androidModule.setAlDailyCA(dailyCAS_C347);

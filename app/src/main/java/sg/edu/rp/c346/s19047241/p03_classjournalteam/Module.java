@@ -8,10 +8,12 @@ public class Module implements Serializable {
     private String moduleCode, moduleName;
     private String dailyCA;
     private ArrayList<DailyCA> alDailyCA;
+    private String inCharge;
 
-    public Module(String moduleCode, String moduleName){
+    public Module(String moduleCode, String moduleName, String inCharge){
         this.moduleName = moduleName;
         this.moduleCode = moduleCode;
+        this.inCharge = inCharge;
     }
 
     public String getModuleCode() {
@@ -44,5 +46,13 @@ public class Module implements Serializable {
 
     public void setModuleName(String moduleName) {
         this.moduleName = moduleName;
+    }
+
+    public String getInCharge() {
+        return inCharge;
+    }
+
+    public void setInCharge(String inCharge) {
+        this.inCharge = inCharge;
     }
 }
