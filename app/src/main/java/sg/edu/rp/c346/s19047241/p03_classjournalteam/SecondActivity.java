@@ -63,14 +63,17 @@ public class SecondActivity extends AppCompatActivity {
         }
         dailyCAAdapter.notifyDataSetChanged();
 
+        // Set title of activity
+        setTitle("Info for " + module.getModuleCode());
+
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Intent to display data
-                Intent dmsdIntent = new Intent(Intent.ACTION_VIEW);
+                Intent infoIntent = new Intent(Intent.ACTION_VIEW);
                 // Set the URL to be used.
-                dmsdIntent.setData(Uri.parse("https://www.rp.edu.sg/SOI/full-time-diplomas/Details/diploma-in-digital-design-and-development"));
-                startActivity(dmsdIntent);
+                infoIntent.setData(Uri.parse(module.getInfoUrl()));
+                startActivity(infoIntent);
             }
         });
 
@@ -132,7 +135,7 @@ public class SecondActivity extends AppCompatActivity {
                 dailyArray.add(new DailyCA(grade, module.getModuleCode(), dailyArray.size()+1));
                 dailyCAAdapter.notifyDataSetChanged();
 
-                Toast.makeText(SecondActivity.this, "" + dailyArray.size(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(SecondActivity.this, "" + dailyArray.size(), Toast.LENGTH_LONG).show();
             }
         }
     }

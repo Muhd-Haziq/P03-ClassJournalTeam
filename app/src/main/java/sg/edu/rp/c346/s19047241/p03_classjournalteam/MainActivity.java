@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ListView moduleLV;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +33,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         initViews();
 
         // Add Modules
-        Module webServicesModule = new Module("C302", "Web Services", "jason_lim@rp.edu.sg");
-        Module androidModule = new Module("C347", "Android Programming ll", "andy_tao@rp.edu.sg");
+        Module webServicesModule = new Module("C302", "Web Services", "jason_lim@rp.edu.sg", "https://www.rp.edu.sg/schools-courses/courses/full-time-diplomas/full-time-courses/modules/index/C236");
+        Module androidModule = new Module("C347", "Android Programming II", "andy_tao@rp.edu.sg", "https://www.rp.edu.sg/schools-courses/courses/full-time-diplomas/full-time-courses/modules/index/C346");
         moduleArrayList.add(webServicesModule);
         moduleArrayList.add(androidModule);
 

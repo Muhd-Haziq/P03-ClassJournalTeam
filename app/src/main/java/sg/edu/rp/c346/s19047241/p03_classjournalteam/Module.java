@@ -9,11 +9,13 @@ public class Module implements Serializable {
     private String dailyCA;
     private ArrayList<DailyCA> alDailyCA;
     private String inCharge;
+    private String infoUrl;
 
-    public Module(String moduleCode, String moduleName, String inCharge){
+    public Module(String moduleCode, String moduleName, String inCharge, String infoUrl){
         this.moduleName = moduleName;
         this.moduleCode = moduleCode;
         this.inCharge = inCharge;
+        this.infoUrl = infoUrl;
     }
 
     public String getModuleCode() {
@@ -54,5 +56,14 @@ public class Module implements Serializable {
 
     public void setInCharge(String inCharge) {
         this.inCharge = inCharge;
+    }
+
+
+    public String getInfoUrl() {
+        return infoUrl;
+    }
+
+    public void setInfoUrl(String infoUrl) {
+        this.infoUrl = infoUrl;
     }
 }
