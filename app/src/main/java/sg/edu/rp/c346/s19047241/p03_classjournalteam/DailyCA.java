@@ -1,25 +1,25 @@
 package sg.edu.rp.c346.s19047241.p03_classjournalteam;
 
-public class DailyCA {
+import java.io.Serializable;
 
-    private String dgGrade, moduleCode;
+public class DailyCA implements Serializable {
+    private String dgGrade;
+    private String moduleCode;
     private int week;
 
-    public DailyCA(String dgGrade, String moduleCode, int week) {
+    public DailyCA(String dgGrade, String moduleCode, int week){
         this.dgGrade = dgGrade;
         this.moduleCode = moduleCode;
         this.week = week;
     }
 
-    public String getDgGrade() {
+    public String getDgGrade(){
         return dgGrade;
     }
-
-    public String getModuleCode() {
+    public String getModuleCode(){
         return moduleCode;
     }
-
-    public int getWeek() {
+    public int getWeek(){
         return week;
     }
 }

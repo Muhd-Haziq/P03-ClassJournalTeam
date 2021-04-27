@@ -6,26 +6,43 @@ import java.util.ArrayList;
 public class Module implements Serializable {
 
     private String moduleCode, moduleName;
-    private ArrayList<DailyCA> dailyCAArrayList;
+    private String dailyCA;
+    private ArrayList<DailyCA> alDailyCA;
 
-    public Module(String moduleCode, String moduleName) {
-        this.moduleCode = moduleCode;
+    public Module(String moduleCode, String moduleName){
         this.moduleName = moduleName;
+        this.moduleCode = moduleCode;
     }
 
     public String getModuleCode() {
         return moduleCode;
     }
 
+    public void setModuleCode(String moduleCode) {
+        this.moduleCode = moduleCode;
+    }
+
+    public String getDailyCA() {
+        return dailyCA;
+    }
+
+    public void setDailyCA(String dailyCA) {
+        this.dailyCA = dailyCA;
+    }
+
+    public ArrayList<DailyCA> getAlDailyCA() {
+        return alDailyCA;
+    }
+
+    public void setAlDailyCA(ArrayList<DailyCA> alDailyCA) {
+        this.alDailyCA = alDailyCA;
+    }
+
     public String getModuleName() {
         return moduleName;
     }
 
-    public ArrayList<DailyCA> getDailyCAArrayList() {
-        return dailyCAArrayList;
-    }
-
-    public void setDailyCAArrayList(ArrayList<DailyCA> dailyCAArrayList) {
-        this.dailyCAArrayList = dailyCAArrayList;
+    public void setModuleName(String moduleName) {
+        this.moduleName = moduleName;
     }
 }

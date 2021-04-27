@@ -43,14 +43,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         dailyCAS_C302.add(new DailyCA("B", webServicesModule.getModuleName(),1));
         dailyCAS_C302.add(new DailyCA("C", webServicesModule.getModuleName(),2));
         dailyCAS_C302.add(new DailyCA("A", webServicesModule.getModuleName(),3));
-        webServicesModule.setDailyCAArrayList(dailyCAS_C302);
+        webServicesModule.setAlDailyCA(dailyCAS_C302);
 
         // -> Android Programming 2
         ArrayList<DailyCA> dailyCAS_C347 = new ArrayList<>();
         dailyCAS_C347.add(new DailyCA("B", androidModule.getModuleName(),1));
         dailyCAS_C347.add(new DailyCA("C", androidModule.getModuleName(),2));
         dailyCAS_C347.add(new DailyCA("A", androidModule.getModuleName(),3));
-        androidModule.setDailyCAArrayList(dailyCAS_C347);
+        androidModule.setAlDailyCA(dailyCAS_C347);
 
         // Initialize Adapter
         moduleArrayAdapter = new ModuleArrayAdapter(this, R.layout.module_list_item, moduleArrayList);
@@ -66,10 +66,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Module module = moduleArrayList.get(position);
-        Log.e(TAG, "Selected Module: " + module.getModuleName());
-//        Intent intent = new Intent();
-//        intent.putExtra("module", module);
-//        startActivity(intent);
+        Module mod = moduleArrayList.get(position);
+        Log.e(TAG, "Selected Module: " + mod.getModuleName());
+        Log.e(TAG, "Selected Module: " + mod.getClass().getSimpleName());
+
+        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        intent.putExtra("module", mod);
+        startActivity(intent);
     }
 }
