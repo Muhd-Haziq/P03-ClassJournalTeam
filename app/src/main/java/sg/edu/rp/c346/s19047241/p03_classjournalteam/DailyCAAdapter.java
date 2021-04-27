@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 import java.util.ArrayList;
 
 public class DailyCAAdapter extends ArrayAdapter<DailyCA> {
@@ -26,7 +28,7 @@ public class DailyCAAdapter extends ArrayAdapter<DailyCA> {
 
     public View getView(int position, View convertView, ViewGroup parent){
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.row, parent, false);
+        View rowView = inflater.inflate(R.layout.dailyca_list_item, parent, false);
 
         DailyCA currentgrade = alDailyCa.get(position);
 
@@ -34,8 +36,14 @@ public class DailyCAAdapter extends ArrayAdapter<DailyCA> {
         week = rowView.findViewById(R.id.textViewWeek);
         imageView = rowView.findViewById(R.id.moduleImageView);
 
+        if (currentgrade.getDgGrade().equals("X")) {
+            grade.setTextColor(ContextCompat.getColor(context, R.color.red_600));
+        } else {
+            grade.setTextColor(ContextCompat.getColor(context, R.color.black_85));
+        }
+
         grade.setText(currentgrade.getDgGrade());
-        week.setText("Week" + currentgrade.getWeek());
+        week.setText("Week " + currentgrade.getWeek());
         imageView.setImageResource(R.drawable.dg);
 
         return rowView;

@@ -11,23 +11,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.util.ArrayList;
 
 public class SecondActivity extends AppCompatActivity {
 
-    int requestCodeForAdd = 1;
+    private int requestCodeForAdd = 1;
 
-    ListView lv;
-    TextView tvWeek;
+    private ArrayList<DailyCA> dailyArray = new ArrayList<>();
+    private DailyCAAdapter dailyCAAdapter;
 
-    ArrayList<DailyCA> dailyArray = new ArrayList<>();
-    DailyCAAdapter dailyCAAdapter;
+    // Views
+    private MaterialButton btnInfo, btnEmail;
+    private ListView lv;
+    private TextView tvWeek, titleTV;
+    private ExtendedFloatingActionButton fabAdd;
 
-    private Button btnInfo, btnAdd, btnEmail;
-
-    Module module;
+    private Module module;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,35 +39,38 @@ public class SecondActivity extends AppCompatActivity {
 
         lv = findViewById(R.id.lvInfo);
         tvWeek = findViewById(R.id.textViewWeek);
+        titleTV = findViewById(R.id.title_text_view);
 
         btnInfo = findViewById(R.id.button);
-        btnAdd = findViewById(R.id.button2);
+//        btnAdd = findViewById(R.id.button2);
         btnEmail = findViewById(R.id.button3);
+        fabAdd = findViewById(R.id.add_ca_fab);
 
-        dailyCAAdapter = new DailyCAAdapter(this, R.layout.row, dailyArray);
+        dailyCAAdapter = new DailyCAAdapter(this, R.layout.dailyca_list_item, dailyArray);
         lv.setAdapter(dailyCAAdapter);
 
+        // Get Selected Module
         Intent i = getIntent();
         module = (Module) i.getSerializableExtra("module");
 
         dailyArray.clear();
-//        if(module.equals("C347")){
-//            dailyArray.add(new DailyCA("A", "C347", 1));
-//            dailyArray.add(new DailyCA("B", "C347", 2));
-//            dailyArray.add(new DailyCA("C", "C347", 3));
-//        }
-//        else if (module.equals("C302")){
-//            dailyArray.add(new DailyCA("A", "C302", 1));
-//            dailyArray.add(new DailyCA("B", "C302", 2));
-//            dailyArray.add(new DailyCA("C", "C302", 3));
-//        }
         for (DailyCA dailyCA: module.getAlDailyCA()) {
             dailyArray.add(dailyCA);
         }
         dailyCAAdapter.notifyDataSetChanged();
 
         // Set title of activity
-        setTitle("Info for " + module.getModuleCode());
+//        setTitle("Info for " + module.getModuleCode());
+        titleTV.setText(module.getModuleCode());
+
+        fabAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SecondActivity.this, Add.class);
+                i.putExtra("week", dailyArray.size() + 1);
+                startActivityForResult(i, requestCodeForAdd);
+            }
+        });
 
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,14 +83,14 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(SecondActivity.this, Add.class);
-                i.putExtra("week", dailyArray.size() + 1);
-                startActivityForResult(i, requestCodeForAdd);
-            }
-        });
+//        btnAdd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(SecondActivity.this, Add.class);
+//                i.putExtra("week", dailyArray.size() + 1);
+//                startActivityForResult(i, requestCodeForAdd);
+//            }
+//        });
 
 
         //String finalMessage = message;
@@ -116,7 +122,7 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
-    }
+    } // <-- end of onCreate method -->
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

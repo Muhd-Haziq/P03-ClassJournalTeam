@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:orientation="horizontal"
+    android:padding="30dp">
+
+
+    <ImageView
+        android:id="@+id/moduleImageView"
+        android:padding="7dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/dg"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <TextView
+            android:id="@+id/textViewWeek"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center|start"
+            android:paddingLeft="10dp"
+            android:text="Week"
+            android:textSize="18dp"
+            style="@style/ItemTitle"/>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center|start"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tvDG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grade"
+                android:textSize="11sp"
+                style="@style/GradeLabel"/>
+
+            <TextView
+                android:id="@+id/tvGrade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A"
+                style="@style/Grade"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

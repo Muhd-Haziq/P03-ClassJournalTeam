@@ -1,94 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@color/white_95">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white_95">
 
+        <!-- Title -->
         <TextView
             android:id="@+id/tvWeekAdd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            android:paddingBottom="20dp"
+            android:paddingHorizontal="30dp"
             android:text="Week"
-            android:background="@color/purple_200"/>
+            android:background="@color/green_dark"
+            style="@style/Title"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/dg"/>
+            <!--        <TextView-->
+            <!--            android:id="@+id/tvWeekAdd"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="Week"-->
+            <!--            android:background="@color/purple_200"/>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:orientation="vertical">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DG"
-                    android:textColor="@color/teal_700"/>
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="30dp">
 
-                <RadioGroup
-                    android:id="@+id/radioGroup"
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="7dp"
+                        android:src="@drawable/dg" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:text="Select Daily Grade"
+                        android:textSize="22sp"
+                        android:textColor="@color/black_80"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical">
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="A"/>
+                    <RadioGroup
+                        android:id="@+id/radioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="B"/>
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="A"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="20dp"
+                            style="@style/GradeChoice"/>
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="C"/>
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="B"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="20dp"
+                            style="@style/GradeChoice"/>
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="D"/>
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="C"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="20dp"
+                            style="@style/GradeChoice"/>
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="F"/>
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="D"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="20dp"
+                            style="@style/GradeChoice"/>
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="X"/>
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="F"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="20dp"
+                            style="@style/GradeChoice"/>
 
-                </RadioGroup>
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="X"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="20dp"
+                            style="@style/GradeChoice"/>
+
+                    </RadioGroup>
+
+                </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnSubmit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Submit"/>
+<!--        <Button-->
+<!--            android:id="@+id/btnSubmit"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Submit"-->
+<!--            android:layout_gravity="bottom"/>-->
 
     </LinearLayout>
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/submit_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="25dp"
+        android:layout_gravity="end|bottom"
+        android:text="Submit"
+        android:backgroundTint="@color/orange_mid"
+        style="@style/fab" />
 
-
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
